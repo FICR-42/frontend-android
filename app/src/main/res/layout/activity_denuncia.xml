@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo"
+    android:layout_centerInParent="true"
+    tools:context=".denuncia">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@drawable/telainternalayout"
+        android:layout_centerInParent="true">
+
+
+        <TextView
+            android:id="@+id/tvDenuncia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Denúncia"
+            android:textAllCaps="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            />
+
+
+        <EditText
+            android:id="@+id/etCEPdenuncia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CEP"
+            android:textSize="12sp"
+            android:layout_below="@id/tvDenuncia"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="150dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="8dp"
+            />
+
+        <Button
+            android:id="@+id/btnCEP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonlayoutmenor"
+            android:text="Buscar CEP"
+            android:textSize="10sp"
+            android:textColor="#43A047"
+            android:textStyle="bold"
+            android:layout_below="@+id/tvDenuncia"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_alignRight="@id/etLogradouro"
+            android:textAllCaps="false"/>
+
+        <EditText
+            android:id="@+id/etLogradouro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etCEPdenuncia"
+            android:textSize="12sp"
+            android:text="Logradouro (rua, avenida e etc)"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+
+
+
+        <EditText
+            android:id="@+id/etBairro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:layout_below="@id/etLogradouro"
+            android:text="Bairro"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+     <!--   <EditText
+            android:id="@+id/etCidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Cidade"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+        <EditText
+            android:id="@+id/etUF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="UF"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+        -->
+
+        <EditText
+            android:id="@+id/etNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:layout_below="@id/etBairro"
+            android:text="Número (próximo ao veiculo)"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+        <EditText
+            android:id="@+id/etReferencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etNumero"
+            android:text="Ponto de Referência"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+
+        <EditText
+            android:id="@+id/etMarcaModelo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etReferencia"
+            android:text="Marca e Modelo"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/etPlaca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etMarcaModelo"
+            android:text="Placa"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="E-mail"
+            android:textSize="12sp"
+            android:layout_below="@id/etPlaca"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+
+
+
+
+        <EditText
+            android:id="@+id/etDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="Breve descrição da denúncia"
+            android:textSize="12sp"
+            android:layout_below="@id/etEmail"
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPlaca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="8dp"
+            android:text="Automóvel não possui placa."
+            android:layout_below="@id/etDescricao"
+            />
+
+        <CheckBox
+            android:id="@+id/checkBoxMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:textSize="10sp"
+            android:text="Automóvel não possui motor."
+            android:layout_below="@id/checkBoxPlaca" />
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonlayout"
+            android:text="Enviar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#43A047"
+            android:textStyle="bold"
+            android:layout_below="@id/checkBoxMotor"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
