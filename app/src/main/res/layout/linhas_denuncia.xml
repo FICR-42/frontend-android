@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/cardview_bg"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="@layout/activity_gerenciar_denuncias_main">
 
     <RelativeLayout
@@ -19,8 +19,8 @@
         <TextView
             android:id="@+id/txt_icon"
             android:layout_width="48dp"
-            android:layout_marginTop="2dp"
             android:layout_height="48dp"
+            android:layout_marginTop="2dp"
             android:background="@drawable/circulo"
             android:gravity="center"
             android:textColor="@android:color/white"
@@ -31,104 +31,104 @@
         <TextView
             android:id="@+id/txt_denunciarua"
             android:layout_width="match_parent"
-            android:ellipsize="marquee"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txt_icon"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@id/txt_icon"
+            android:layout_toRightOf="@id/txt_icon"
+            android:ellipsize="marquee"
             android:gravity="left"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            android:layout_toEndOf="@id/txt_icon"
-            android:layout_alignTop="@id/txt_icon"
-            android:layout_marginStart="16dp"
-            tools:text="Rua Esta Rua Possui Nome, 9999"
-            android:layout_toRightOf="@id/txt_icon"
-            android:layout_marginLeft="16dp" />
+            tools:text="Rua Esta Rua Possui Nome, 9999" />
 
         <TextView
             android:id="@+id/txt_denunciabairro"
-            android:paddingRight="10dp"
-            android:singleLine="true"
-            android:ellipsize="marquee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_denunciarua"
             android:layout_alignStart="@id/txt_denunciarua"
+            android:layout_alignLeft="@id/txt_denunciarua"
+            android:ellipsize="marquee"
+            android:paddingRight="10dp"
+            android:singleLine="true"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
-            tools:text="Bairro do Android Fervente"
-            android:layout_alignLeft="@id/txt_denunciarua" />
+            tools:text="Bairro do Android Fervente" />
 
         <TextView
             android:id="@+id/txt_denunciadata"
-            android:singleLine="true"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:ellipsize="marquee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/txt_denunciabairro"
             android:layout_below="@id/txt_denunciarua"
+            android:layout_toEndOf="@id/txt_denunciabairro"
+            android:layout_toRightOf="@id/txt_denunciabairro"
+            android:ellipsize="marquee"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
-            tools:text="22/05/2020"
-            android:layout_toRightOf="@id/txt_denunciabairro" />
+            tools:text="22/05/2020" />
 
         <TextView
             android:id="@+id/txt_denunciacep"
-            android:singleLine="true"
-            android:ellipsize="marquee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_denunciabairro"
             android:layout_alignStart="@id/txt_denunciabairro"
+            android:layout_alignLeft="@id/txt_denunciabairro"
+            android:ellipsize="marquee"
+            android:paddingRight="10dp"
+            android:singleLine="true"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
-            tools:text="50.000-000"
-            android:paddingRight="10dp"
-            android:layout_alignLeft="@id/txt_denunciabairro" />
+            tools:text="50.000-000" />
 
         <TextView
             android:id="@+id/txt_denunciaplaca"
-            android:singleLine="true"
-            android:paddingLeft="10dp"
-            android:ellipsize="marquee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_denunciabairro"
             android:layout_toEndOf="@id/txt_denunciacep"
             android:layout_toRightOf="@id/txt_denunciacep"
+            android:ellipsize="marquee"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
-            tools:text="Sem Placa"
-            android:paddingRight="10dp"/>
+            tools:text="Sem Placa" />
 
         <TextView
             android:id="@+id/txt_denunciamotor"
-            android:singleLine="true"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:ellipsize="marquee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_denunciabairro"
             android:layout_toEndOf="@id/txt_denunciaplaca"
+            android:layout_toRightOf="@id/txt_denunciacep"
+            android:ellipsize="marquee"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
-            tools:text="Sem Motor"
-            android:layout_toRightOf="@id/txt_denunciacep" />
+            tools:text="Sem Motor" />
 
         <TextView
             android:id="@+id/txt_denunciadescricao"
-            android:singleLine="true"
-            android:ellipsize="marquee"
             android:layout_width="wrap_content"
-            android:paddingRight="10dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_denunciamotor"
             android:layout_alignStart="@id/txt_denunciabairro"
+            android:layout_alignLeft="@id/txt_denunciabairro"
+            android:ellipsize="marquee"
+            android:paddingRight="10dp"
+            android:singleLine="true"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
-            tools:text="Usuário vai descrever que é um problema muito sério e que toda a comunidade esta prejudicada."
-            android:layout_alignLeft="@id/txt_denunciabairro" />
+            tools:text="Usuário vai descrever que é um problema muito sério e que toda a comunidade esta prejudicada." />
 
 
     </RelativeLayout>

@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fundo"
     android:layout_centerInParent="true"
+    android:background="@drawable/fundo"
     tools:context=".denuncia_enviada_k">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:background="@drawable/telainternalayout"
-        android:layout_centerInParent="true">
+        android:background="@drawable/telainternalayout">
 
 
         <TextView
             android:id="@+id/tvObrigado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
             android:text="Obrigado!"
             android:textAllCaps="true"
-            android:layout_centerHorizontal="true"
             android:textColor="#000000"
             android:textSize="32sp"
-            android:textStyle="bold"
-            android:layout_marginTop="150dp"
-            />
+            android:textStyle="bold" />
 
 
         <TextView
             android:id="@+id/tvObrigado2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvObrigado"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
             android:text="Denúncia enviada com sucesso."
             android:textAllCaps="false"
-            android:layout_centerHorizontal="true"
             android:textColor="#000000"
-            android:layout_below="@+id/tvObrigado"
-            android:textSize="16sp"
-            android:layout_marginTop="50dp"
-            />
+            android:textSize="16sp" />
 
 
         <Button
@@ -58,7 +55,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#43A047"
             android:textStyle="bold" />
-
 
 
     </RelativeLayout>

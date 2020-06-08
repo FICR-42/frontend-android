@@ -115,15 +115,32 @@ class CEP_Kotlin {
         return result.toString();
     }
 */
-    @SerializedName("cep") val cep: String? = null
-    @SerializedName("logradouro") val logradouro: String? = null
-    @SerializedName("complemento") val complemento: String? = null
-    @SerializedName("bairro") val bairro: String? = null
-    @SerializedName("localidade") val localidade: String? = null
-    @SerializedName("uf") val uf: String? = null
-    @SerializedName("unidade") val unidade: String? = null
-    @SerializedName("ibge") val ibge: String? = null
-    @SerializedName("gia") val gia: String? = null
+    @SerializedName("cep")
+    val cep: String? = null
+
+    @SerializedName("logradouro")
+    val logradouro: String? = null
+
+    @SerializedName("complemento")
+    val complemento: String? = null
+
+    @SerializedName("bairro")
+    val bairro: String? = null
+
+    @SerializedName("localidade")
+    val localidade: String? = null
+
+    @SerializedName("uf")
+    val uf: String? = null
+
+    @SerializedName("unidade")
+    val unidade: String? = null
+
+    @SerializedName("ibge")
+    val ibge: String? = null
+
+    @SerializedName("gia")
+    val gia: String? = null
 
 
 }

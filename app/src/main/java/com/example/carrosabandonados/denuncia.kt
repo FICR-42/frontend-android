@@ -12,9 +12,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.GsonBuilder
 import model.Denuncia_json
-import okhttp3.internal.wait
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,8 +22,6 @@ import service.DenunciaWebService
 
 
 class denuncia : AppCompatActivity() {
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,13 +40,19 @@ class denuncia : AppCompatActivity() {
         val cbMotor = findViewById<CheckBox>(R.id.checkBoxMotor)
         val cbPlaca = findViewById<CheckBox>(R.id.checkBoxPlaca)
         val etDescricao = findViewById<EditText>(R.id.etDescricao)
+        var cidade: String = ""
+        var uf: String = ""
         var cep = CEP_Kotlin()
-        var cepDigitado: String = ""
-        var BaseUrl: String = "viacep.com.br/ws/" + cepDigitado + "/json/"
-        var erro: String = ""
-        var motor: String=""
+        var txtcep = ""
+        var motor: String = "Com motor."
+        var placa: String = "Sem placa."
 
         val builder = AlertDialog.Builder(this@denuncia)
+
+
+        cbMotor.setOnCheckedChangeListener { buttonView, isChecked ->
+            motor = "Sem motor."
+        }
 
         etCep.setOnTouchListener(OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
@@ -120,11 +122,16 @@ class denuncia : AppCompatActivity() {
 
         btnCEP.setOnClickListener {
 
+            txtcep = etCep.text.toString()
+            txtcep = txtcep.replace(".", "")
+            txtcep = txtcep.replace("-", "")
+            txtcep = txtcep.replace(",", "")
+
 
             doAsync {
                 /* Realizar a chamada da API passando o caminho do EditText */
                 val call = CepWebService().apiRetrofitCEP()
-                    .getCEP(etCep.text.toString())
+                    .getCEP(txtcep)
 
                 /* A chamada deve implementar dois metodos: onResponse e onFailure */
                 call.enqueue(object : Callback<CEP_Kotlin> {
@@ -146,8 +153,8 @@ class denuncia : AppCompatActivity() {
                                 etCep.setText(CEPs.cep)
                                 etLogradouro.setText(CEPs.logradouro)
                                 etBairro.setText(CEPs.bairro)
-                                //CEPs.localidade + "\n" +
-                                //"UF: " + CEPs.uf
+                                cidade = CEPs.localidade.toString()
+                                uf = CEPs.uf.toString()
                             }
                         }
                     }
@@ -170,98 +177,58 @@ class denuncia : AppCompatActivity() {
                 denuncia.descricao = etDescricao.text.toString()
                 denuncia.email = etEmail.text.toString()
                 denuncia.marcaModelo = etMarcaModelo.text.toString()
-                denuncia.motor = ""
+                denuncia.motor = motor
                 denuncia.numero = etNumero.text.toString()
-                denuncia.placa = etPlaca.text.toString()
+
+                if (cbPlaca.isChecked) {
+                    denuncia.placa = placa
+                } else {
+                    denuncia.placa = etPlaca.text.toString()
+                }
+                denuncia.cidade = cidade
                 denuncia.referencia = etReferencia.text.toString()
                 denuncia.rua = etLogradouro.text.toString()
-                denuncia.uf = cep.uf.toString()
+                denuncia.uf = uf
                 denuncia.Endereco()
 
-            println(denuncia.toString())
+                println(denuncia.toString())
 
                 //doAsync {
-                    val call = DenunciaWebService().PostDenuncia().postDenuncia(denuncia)
+                val call = DenunciaWebService().PostDenuncia().postDenuncia(denuncia)
 
-                    /* A chamada deve implementar dois metodos: onResponse e onFailure */
-                    call.enqueue(object : Callback<Denuncia_json> {
+                /* A chamada deve implementar dois metodos: onResponse e onFailure */
+                call.enqueue(object : Callback<Denuncia_json> {
 
-                        /* Caso a resposta seja positiva extraimos o objeto da resposta e exibimos o resultado na tela */
-                        override fun onResponse(
-                            call: Call<Denuncia_json>,
-                            response: Response<Denuncia_json>
-                        ) {
+                    /* Caso a resposta seja positiva extraimos o objeto da resposta e exibimos o resultado na tela */
+                    override fun onResponse(
+                        call: Call<Denuncia_json>,
+                        response: Response<Denuncia_json>
+                    ) {
 
-                            response.let {
-                               val denun: Denuncia_json? = it.body()
+                        response.let {
+                            val denun: Denuncia_json? = it.body()
 
-                               goThanks()
-
-
-                            }
+                            goThanks()
                         }
+                    }
 
-                        /* Caso ocorra uma falha na resposta lançamos um erro no log */
-                        override fun onFailure(call: Call<Denuncia_json>?, t: Throwable?) {
-                            Log.e("Erro", t?.message)
-                            builder.setTitle("Oops.. algo deu errado!")
-                            builder.setMessage(t?.message)
-                        }
-                    })
-
-
-                }
-           // }
-
+                    /* Caso ocorra uma falha na resposta lançamos um erro no log */
+                    override fun onFailure(call: Call<Denuncia_json>?, t: Throwable?) {
+                        Log.e("Erro", t?.message)
+                        builder.setTitle("Oops.. algo deu errado!")
+                        builder.setMessage(t?.message)
+                    }
+                })
+            }
         })
-//instancia de Denuncia
-
-
     }
 
-    fun goThanks (){
+    fun goThanks() {
 
         val intent = Intent(this, denuncia_enviada_k::class.java)
 
         startActivity(intent)
     }
-    /* fun insertDenuncia(denuncia: Denuncia_kotlin) {
-
-         val call = RetrofitInitializer().PostDenuncia().postDenuncia(denuncia)
-
-           call.enqueue(object : Callback<Denuncia_kotlin> {
-                     override fun onResponse(
-                         call: Call<Denuncia_kotlin>,
-                         response: Response<Denuncia_kotlin>
-                     ) {
-                         if (!response.isSuccessful()) {
-
-                             builder.setMessage("Code: " + response.code())
-                             return
-                         }
-                         val postResponse: Denuncia_kotlin? = response.body()
-                         var content = ""
-                         content += """
-                                         Code: ${response.code()}
-
-                                         """.trimIndent()
-                         content += """
-                                         Veiculo: ${postResponse.marcaModelo.toString()} + ", " +  ${postResponse.placa.toString()}
-
-                                         """.trimIndent()
-                         content += """
-                                         Endereço: ${postResponse.rua.toString()} + ", " + ${postResponse.numero.toString()} +  ${postResponse.bairro.toString()}
-
-                                         """.trimIndent()
-
-                     }
-
-                     override fun onFailure(call: Call<Denuncia_kotlin?>, t: Throwable) {
-                         builder.setTitle("Houve algum problema!")
-                         builder.setMessage(t.message)
-                     }
-                 })
-             }*/
 }
 
 

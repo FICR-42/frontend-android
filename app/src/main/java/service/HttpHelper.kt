@@ -1,14 +1,11 @@
 package service
 
-import CEP_Kotlin
 import CepEndpoints
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class HttpHelper {
@@ -17,25 +14,23 @@ class HttpHelper {
     val gson = Gson();
 
 
+    fun postDenuncia(json: String): String {
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("http://backend.teste-route52-15.com/denuncia")
+            .post(json.toRequestBody(MEDIA_TYPE_MARKDOWN))
+            .build()
 
-    fun postDenuncia (json:String): String {
-         val client = OkHttpClient()
-            val request = Request.Builder()
-                .url("http://backend.teste-route52-15.com/denuncia")
-                .post(json.toRequestBody(MEDIA_TYPE_MARKDOWN))
-                .build()
+        val resposta = client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
 
-        val resposta =  client.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) throw IOException("Unexpected code $response")
-
-                println(response.body!!.string())
-            }
+            println(response.body!!.string())
+        }
         return resposta.toString()
 
-        }
+    }
 
-    fun getDenuncia (json:String) {
-
+    fun getDenuncia(json: String) {
 
 
         val request = Request.Builder()
@@ -50,21 +45,19 @@ class HttpHelper {
         }
     }
 
-        companion object {
-            fun getCEP(toString: String, kotlin: Class<Any>) {
-                val MEDIA_TYPE_MARKDOWN = "application/json; charset=utf-8".toMediaType()
-            }
-
-
-            fun buildService(kotlin: Class<CepEndpoints>) {
-                val MEDIA_TYPE_MARKDOWN = "application/json; charset=utf-8".toMediaType()
-            }
-
-
+    companion object {
+        fun getCEP(toString: String, kotlin: Class<Any>) {
             val MEDIA_TYPE_MARKDOWN = "application/json; charset=utf-8".toMediaType()
         }
 
 
+        fun buildService(kotlin: Class<CepEndpoints>) {
+            val MEDIA_TYPE_MARKDOWN = "application/json; charset=utf-8".toMediaType()
+        }
+
+
+        val MEDIA_TYPE_MARKDOWN = "application/json; charset=utf-8".toMediaType()
+    }
 
 
 /*
@@ -76,5 +69,4 @@ class HttpHelper {
 */
 
 
-
-    }
+}

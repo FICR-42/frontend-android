@@ -20,7 +20,6 @@ public class Denuncia {
     private boolean selected;
 
 
-
     public String getId_denuncia() {
         return id_denuncia;
     }
@@ -149,7 +148,7 @@ public class Denuncia {
         this.selected = selected;
     }
 
-    public static class DenunciaBuilder{
+    public static class DenunciaBuilder {
 
         private String id_denuncia;
         private String placa;
@@ -167,6 +166,14 @@ public class Denuncia {
         private String descricao;
         private String data;
         private boolean selected;
+
+        private DenunciaBuilder() {
+        }
+
+        public static DenunciaBuilder builder() {
+
+            return new DenunciaBuilder();
+        }
 
         public DenunciaBuilder setId_denuncia(String id_denuncia) {
             this.id_denuncia = id_denuncia;
@@ -248,32 +255,25 @@ public class Denuncia {
             return this;
         }
 
-        private DenunciaBuilder(){}
-
-        public static DenunciaBuilder builder(){
-
-           return new DenunciaBuilder();
-        }
-
-        public Denuncia build(){
+        public Denuncia build() {
             Denuncia denuncia = new Denuncia();
 
-            denuncia.bairro=bairro;
-            denuncia.cep=cep;
+            denuncia.bairro = bairro;
+            denuncia.cep = cep;
             denuncia.cidade = cidade;
-            denuncia.complemento=complemento;
-            denuncia.data=data;
-            denuncia.descricao=descricao;
-            denuncia.email=email;
-            denuncia.id_denuncia=id_denuncia;
-            denuncia.marcaModelo=marcaModelo;
-            denuncia.motor=motor;
-            denuncia.numero=numero;
-            denuncia.placa=placa;
-            denuncia.referencia=referencia;
-            denuncia.rua=rua;
-            denuncia.selected=selected;
-            denuncia.uf=uf;
+            denuncia.complemento = complemento;
+            denuncia.data = data;
+            denuncia.descricao = descricao;
+            denuncia.email = email;
+            denuncia.id_denuncia = id_denuncia;
+            denuncia.marcaModelo = marcaModelo;
+            denuncia.motor = motor;
+            denuncia.numero = numero;
+            denuncia.placa = placa;
+            denuncia.referencia = referencia;
+            denuncia.rua = rua;
+            denuncia.selected = selected;
+            denuncia.uf = uf;
 
             return denuncia;
 
