@@ -1,9 +1,12 @@
+package service
+
+import model.CEP_Kotlin
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 
-interface CepEndpoints {
+interface InterfaceCepEndpoints {
 
 
     @GET("{CEP}/json/")

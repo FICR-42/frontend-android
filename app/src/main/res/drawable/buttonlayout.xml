@@ -6,8 +6,8 @@
     <solid android:color="#FFFF" />
     // Button Colour
     <padding
-        android:bottom="5dp"
-        android:left="10dp"
-        android:right="10dp"
-        android:top="5dp" />
+        android:bottom="1dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="1dp" />
 </shape>

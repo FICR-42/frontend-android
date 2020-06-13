@@ -1,6 +1,5 @@
 package service
 
-import CepEndpoints
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -51,7 +50,7 @@ class HttpHelper {
         }
 
 
-        fun buildService(kotlin: Class<CepEndpoints>) {
+        fun buildService(kotlin: Class<InterfaceCepEndpoints>) {
             val MEDIA_TYPE_MARKDOWN = "application/json; charset=utf-8".toMediaType()
         }
 

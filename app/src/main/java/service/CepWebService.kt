@@ -1,6 +1,5 @@
 package service
 
-import CepEndpoints
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,8 +12,8 @@ class CepWebService {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun apiRetrofitCEP(): CepEndpoints {
-        return retrofitgetCEP.create(CepEndpoints::class.java)
+    fun apiRetrofitCEP(): InterfaceCepEndpoints {
+        return retrofitgetCEP.create(InterfaceCepEndpoints::class.java)
     }
 
 }

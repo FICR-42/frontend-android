@@ -1,10 +1,9 @@
-package model;
+package model
 
+import com.google.gson.annotations.SerializedName
 
-import com.google.gson.annotations.SerializedName;
-
-public class CEP {
-/*
+class CEP_Kotlin {
+    /*
 
     private String cep;
     private String logradouro;
@@ -118,106 +117,32 @@ public class CEP {
         return result.toString();
     }
 */
-
     @SerializedName("cep")
-    private String cep;
+    val cep: String? = null
+
     @SerializedName("logradouro")
-    private String logradouro;
+    val logradouro: String? = null
+
     @SerializedName("complemento")
-    private String complemento;
+    val complemento: String? = null
+
     @SerializedName("bairro")
-    private String bairro;
+    val bairro: String? = null
+
     @SerializedName("localidade")
-    private String localidade;
+    val localidade: String? = null
+
     @SerializedName("uf")
-    private String uf;
+    val uf: String? = null
+
     @SerializedName("unidade")
-    private String unidade;
+    val unidade: String? = null
+
     @SerializedName("ibge")
-    private String ibge;
+    val ibge: String? = null
+
     @SerializedName("gia")
-    private String gia;
+    val gia: String? = null
 
 
-    /*@Override
-    public String toString() {
-        return "CEP: " + getCep()
-                + "\nLogradouro: " + getLogradouro()
-                + "\nComplemento: " + getComplemento()
-                + "\nBairro: " + getBairro()
-                + "\nLocalidade:" + getLocalidade()
-                + "\nEstado: " + getUf();
-    }*/
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getLocalidade() {
-        return localidade;
-    }
-
-    public void setLocalidade(String localidade) {
-        this.localidade = localidade;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getUnidade() {
-        return unidade;
-    }
-
-    public void setUnidade(String unidade) {
-        this.unidade = unidade;
-    }
-
-    public String getIbge() {
-        return ibge;
-    }
-
-    public void setIbge(String ibge) {
-        this.ibge = ibge;
-    }
-
-    public String getGia() {
-        return gia;
-    }
-
-    public void setGia(String gia) {
-        this.gia = gia;
-    }
 }

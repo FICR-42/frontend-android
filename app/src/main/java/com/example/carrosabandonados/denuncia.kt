@@ -1,6 +1,6 @@
 package com.example.carrosabandonados
 
-import CEP_Kotlin
+import model.CEP_Kotlin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +12,9 @@ import android.widget.CheckBox
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import model.Denuncia_json
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import model.Denuncia
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
 import retrofit2.Callback
@@ -167,13 +169,16 @@ class denuncia : AppCompatActivity() {
             }
         }
         btnEnviar.setOnClickListener(object : View.OnClickListener {
+
+
+
             override fun onClick(view: View?) {
 
-                var denuncia = Denuncia_json()
+                var denuncia = Denuncia()
                 denuncia.cep = etCep.text.toString()
                 denuncia.bairro = etBairro.text.toString()
                 denuncia.cidade = cep.localidade.toString()
-                denuncia.complemento = "N." + etNumero.text.toString()
+                denuncia.complemento = etNumero.text.toString()
                 denuncia.descricao = etDescricao.text.toString()
                 denuncia.email = etEmail.text.toString()
                 denuncia.marcaModelo = etMarcaModelo.text.toString()
@@ -197,23 +202,24 @@ class denuncia : AppCompatActivity() {
                 val call = DenunciaWebService().PostDenuncia().postDenuncia(denuncia)
 
                 /* A chamada deve implementar dois metodos: onResponse e onFailure */
-                call.enqueue(object : Callback<Denuncia_json> {
+                call.enqueue(object : Callback<Denuncia> {
 
                     /* Caso a resposta seja positiva extraimos o objeto da resposta e exibimos o resultado na tela */
                     override fun onResponse(
-                        call: Call<Denuncia_json>,
-                        response: Response<Denuncia_json>
+                        call: Call<Denuncia>,
+                        response: Response<Denuncia>
                     ) {
 
                         response.let {
-                            val denun: Denuncia_json? = it.body()
 
-                            goThanks()
+                                val denun: Denuncia? = it.body()
+                              goThanks(denuncia.email)
+
                         }
                     }
 
                     /* Caso ocorra uma falha na resposta lançamos um erro no log */
-                    override fun onFailure(call: Call<Denuncia_json>?, t: Throwable?) {
+                    override fun onFailure(call: Call<Denuncia>?, t: Throwable?) {
                         Log.e("Erro", t?.message)
                         builder.setTitle("Oops.. algo deu errado!")
                         builder.setMessage(t?.message)
@@ -223,9 +229,11 @@ class denuncia : AppCompatActivity() {
         })
     }
 
-    fun goThanks() {
+    fun goThanks(email:String) {
 
         val intent = Intent(this, denuncia_enviada_k::class.java)
+
+        intent.putExtra("email", email)
 
         startActivity(intent)
     }

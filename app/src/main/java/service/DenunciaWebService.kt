@@ -1,7 +1,6 @@
 package service
 
 
-import DenunciaEndpoints
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,9 +12,11 @@ class DenunciaWebService {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun PostDenuncia(): DenunciaEndpoints {
-        return retrofitpostDenuncia.create(DenunciaEndpoints::class.java)
+    fun PostDenuncia(): InterfaceDenunciaEndpoints {
+        return retrofitpostDenuncia.create(InterfaceDenunciaEndpoints::class.java)
     }
 
-
+    fun GETDenuncia(): InterfaceDenunciaEndpoints {
+        return retrofitpostDenuncia.create(InterfaceDenunciaEndpoints::class.java)
+    }
 }

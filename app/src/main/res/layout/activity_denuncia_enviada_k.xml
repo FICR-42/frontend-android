@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="100dp"
             android:text="Obrigado!"
             android:textAllCaps="true"
             android:textColor="#000000"
@@ -34,20 +34,47 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvObrigado"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="Denúncia enviada com sucesso."
             android:textAllCaps="false"
             android:textColor="#000000"
             android:textSize="16sp" />
 
 
+
+
+
+        <TextView
+            android:id="@+id/tvObrigado4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvObrigado2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Enviamos e-mail com o número do protocolo para: "
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvObrigadoEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvObrigado4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Email."
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
         <Button
             android:id="@+id/btnVoltar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvObrigado2"
+            android:layout_below="@id/tvObrigado4"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="75dp"
             android:background="@drawable/buttonlayout"
             android:gravity="center"
             android:onClick="goBack"

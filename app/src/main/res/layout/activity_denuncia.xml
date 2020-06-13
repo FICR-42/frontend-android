@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_margin="12dp"
         android:background="@drawable/telainternalayout">
 
 
@@ -20,34 +20,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="Denúncia"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rldenuncia"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:layout_below="@id/tvDenuncia"
+            >
+
 
         <EditText
             android:id="@+id/etCEPdenuncia"
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvDenuncia"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
             android:hint="CEP"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:textSize="12sp" />
 
         <Button
             android:id="@+id/btnCEP"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvDenuncia"
-            android:layout_alignRight="@id/etLogradouro"
-            android:layout_marginTop="8dp"
+            android:layout_height="35dp"
+            android:layout_toEndOf="@id/etCEPdenuncia"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/buttonlayoutmenor"
             android:gravity="center"
             android:text="Buscar CEP"
@@ -56,12 +63,16 @@
             android:textSize="10sp"
             android:textStyle="bold" />
 
+        </RelativeLayout>
+
+
         <EditText
             android:id="@+id/etLogradouro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/etCEPdenuncia"
+            android:layout_below="@id/rldenuncia"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:hint="Logradouro (rua, avenida e etc)"
             android:paddingLeft="10dp"
@@ -182,15 +193,15 @@
         <Button
             android:id="@+id/btnEnviar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_below="@id/checkBoxMotor"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/buttonlayout"
             android:gravity="center"
             android:text="Enviar"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#43A047"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
 

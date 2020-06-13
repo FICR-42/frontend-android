@@ -2,11 +2,8 @@ package model
 
 import com.google.gson.annotations.SerializedName
 
-class Denuncia_android {
+class Denuncia {
 
-
-    @SerializedName("_id")
-    var id_denuncia: String = "";
 
     @SerializedName("placa")
     var placa: String = "";
@@ -50,14 +47,17 @@ class Denuncia_android {
     @SerializedName("descricao")
     var descricao: String = "";
 
+    @SerializedName("status")
+    var status: String = "";
 
-    var data: String = "";
+    @SerializedName("protocolo")
+    var protocolo: String = "";
 
-    var selected: String = "";
-
+    @SerializedName("id")
+    var id: String = "";
 
     override fun toString(): String {
-        return "Denuncia_kotlin(id_denuncia='$id_denuncia', placa='$placa', motor='$motor', marcaModelo='$marcaModelo', cep='$cep', rua='$rua', numero='$numero', complemento='$complemento', bairro='$bairro', cidade='$cidade', uf='$uf', referencia='$referencia', email='$email', descricao='$descricao', data='$data', selected='$selected')"
+        return "Denuncia_kotlin(placa='$placa', motor='$motor', marcaModelo='$marcaModelo', cep='$cep', rua='$rua', numero='$numero', complemento='$complemento', bairro='$bairro', cidade='$cidade', uf='$uf', referencia='$referencia', email='$email', descricao='$descricao')"
     }
 
     fun Endereco() {
@@ -69,7 +69,7 @@ class Denuncia_android {
         if (uf == null || uf == "") uf = "uf não informada"
         if (cep == null || cep == "") cep = "cep não informado"
 
-        endereco = rua + ", " + numero + " - " + bairro + "," + cidade + "-" + uf + " - CEP:" + cep
+        endereco = rua + ", " + numero + " - " + bairro + ", " + cidade + "-" + uf + " - CEP:" + cep
     }
 
 }

@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingLeft="5dp"
-                android:text="Status da Denúncia:"
+                android:text="Protocolo da Denúncia:"
                 android:textColor="#000"
                 android:textSize="16sp" />
 
@@ -117,113 +117,132 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/telainternalayout">
 
-            <TextView
-                android:id="@+id/tvEndereco"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:text="Endereço:"
-                android:textColor="#2d2d2d"
-                android:textSize="13sp" />
+            <RelativeLayout
+                android:id="@+id/endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvEndereco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:text="Endereço:"
+                    android:textColor="#2d2d2d"
+                    android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/enderecoResp"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/enderecoResp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toEndOf="@id/tvEndereco"
+                    android:hint="Endereço"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:layout_toEndOf="@id/tvEndereco"
-                android:hint="Endereço"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:textSize="13sp" />
+                android:id="@+id/veiculo"
+                android:layout_below="@id/endereco">
 
-            <TextView
-                android:id="@+id/tvMarcaModelo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/enderecoResp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:text="Veículo:"
-                android:textColor="#2d2d2d"
-                android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/tvMarcaModelo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:text="Veículo:"
+                    android:textColor="#2d2d2d"
+                    android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/marcaResp"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/marcaResp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toEndOf="@id/tvMarcaModelo"
+                    android:hint="Marca/Modelo"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvEndereco"
-                android:layout_alignStart="@id/enderecoResp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:hint="Marca/Modelo"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:textSize="13sp" />
+                android:id="@+id/placa"
+                android:layout_below="@+id/veiculo">
+                <TextView
+                    android:id="@+id/tvPlaca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:text="Placa:"
+                    android:textColor="#2d2d2d"
+                    android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/tvPlaca"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/placaResp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@id/tvPlaca"
+                    android:layout_marginRight="5dp"
+                    android:hint="Placa"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvMarcaModelo"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:text="Placa:"
-                android:textColor="#2d2d2d"
-                android:textSize="13sp" />
+                android:layout_below="@id/placa"
+                android:id="@+id/email">
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:text="E-mail:"
+                    android:textColor="#2d2d2d"
+                    android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/placaResp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/marcaResp"
-                android:layout_alignStart="@id/marcaResp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:hint="Placa"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/emailResp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toEndOf="@id/tvEmail"
+                    android:hint="E-mail"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:textSize="13sp" />
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/status"
+                android:layout_below="@id/email">
             <TextView
-                android:id="@+id/tvEmail"
+                android:id="@+id/tvDescricaoStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvPlaca"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:text="E-mail:"
-                android:textColor="#2d2d2d"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/emailResp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/placaResp"
-                android:layout_alignStart="@id/placaResp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="5dp"
-                android:hint="E-mail"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tvDescricaoStatua"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvEmail"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
                 android:paddingLeft="2dp"
@@ -237,17 +256,17 @@
                 android:id="@+id/descricaoResp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/emailResp"
-                android:layout_alignStart="@id/emailResp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="30dp"
+                android:layout_toEndOf="@id/tvDescricaoStatus"
                 android:hint="Status"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
+            </RelativeLayout>
         </RelativeLayout>
 
 
